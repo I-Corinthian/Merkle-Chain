@@ -5,7 +5,7 @@
 #include "cryptopp/filters.h"
 #include "cryptopp/hex.h"
 
-
+const int block_size = 16; // the block size
 
 class MerkleTree
 {
@@ -17,7 +17,7 @@ public:
     void add_data(std::string d)
     {
         data.push_back(d);
-        if (data.size() == 16)
+        if (data.size() == block_size)
         {
             generate_root();
         }
